@@ -142,31 +142,35 @@
 						Please provide the following information. Zoom information will be provided via email.
 					</Dialog.Description>
 				</Dialog.Header>
-				<form method="POST">
+				<form method="POST" action='https://www.csteentalks.online/register/ttregister3.php'>
 					<div class="grid gap-4 py-4">
 						<div class="grid grid-cols-4 items-center gap-4">
 							<Label for="fname" class="text-left">First Name</Label>
-							<Input id="fname" value="" class="bg-cream col-span-3" />
+							<Input id="fn" value="" class="bg-cream col-span-3" />
 						</div>
 						<div class="grid grid-cols-4 items-center gap-4">
-							<Label for="email" class="text-left">Email</Label>
-							<Input id="email" value="" type="email" class="bg-cream col-span-3" />
+							<Label for="em" class="text-left">Email</Label>
+							<Input id="em" value="" type="email" class="bg-cream col-span-3" />
 						</div>
 						<div class="grid grid-cols-4 items-center gap-4">
-							<Label for="state" class="text-left">Your state</Label>
-							<Input id="state" value="" class="bg-cream col-span-3" />
+							<Label for="em2" class="text-left">Retype Email</Label>
+							<Input id="em2" value="" type="email" class="bg-cream col-span-3" />
 						</div>
 						<div class="grid grid-cols-4 items-center gap-4">
-							<Label for="city" class="text-left">Your city</Label>
-							<Input id="city" value="" class="bg-cream col-span-3" />
+							<Label for="rState" class="text-left">Your state</Label>
+							<Input id="rState" value="" class="bg-cream col-span-3" />
 						</div>
 						<div class="grid grid-cols-4 items-center gap-4">
-							<Label for="grade" class="text-left">Grade in school</Label>
-							<Input id="grade" value="" type="number" class="bg-cream col-span-3" />
+							<Label for="rCity" class="text-left">Your city</Label>
+							<Input id="rCity" value="" class="bg-cream col-span-3" />
 						</div>
-						<input type="hidden" value="secret" />
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="rgrade" class="text-left">Grade in school</Label>
+							<Input id="rgrade" value="" type="number" class="bg-cream col-span-3" />
+						</div>
+						<input type="hidden" id='nblive' value="false" />
 					</div>
-					<button
+					<button type='submit'
 						class="bg-cream shadow-bubble m-2 w-fit rounded-4xl border-1 border-slate-700 p-2 pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all active:translate-x-2 active:translate-y-1 active:border-2 active:shadow-none"
 						>Submit</button
 					>
