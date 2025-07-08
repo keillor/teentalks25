@@ -60,92 +60,123 @@
 			desc: 'Travis Thomas is a leadership and mindset coach who works with professional athletes and business leaders to be the best versions of themselves. He has a background in improvi- sational comedy which has allowed him to live his spirituality bigger and more authentically. His second book, “Confidence is Over- rated” is available on Amazon. You can find out more about Travis at his website www.LiveYesAnd.com'
 		}
 	];
+	const glass = {
+		background: 'rgba(255, 255, 255, 0.36)',
+		borderRadius: '16px',
+		boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+		backdropFilter: 'blur(8.7px)',
+		WebkitBackdropFilter: 'blur(8.7px)'
+	};
 </script>
 
-<div class="flex flex-col items-center gap-2 p-1">
-	<h1
-		class="bg-bubble shadow-big-bubble m-2 w-fit rounded-4xl pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all hover:translate-x-2 hover:translate-y-1 hover:border-2 hover:border-slate-700 hover:shadow-none"
-	>
-		Teen Talks <br />Series
-	</h1>
-	<p class="text-center text-xl italic">
-		A free workshop series open to all Christian Scientsts and friends, aged 13 to 19.
-	</p>
-</div>
-
-<hr class="text-slate-700" />
-
-{#each lectures as lecture}
-	<div
-		class="m-2 grid grid-cols-4 items-center justify-around rounded-3xl border border-slate-700 p-2 md:justify-items-stretch"
-	>
-		<div
-			class="text-s bg-mint-300 shadow-bubble flex aspect-square h-22 w-22 flex-col place-content-center items-center rounded-full text-center transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:border hover:border-slate-700 hover:shadow-none md:justify-self-center-safe"
-		>
-			Sunday<br />
-			{lecture.month}<br />
-			{lecture.day}
-		</div>
-		<div class="col-span-2 m-1 flex flex-col justify-around wrap-normal">
-			<span class="text-center font-bold text-wrap">{lecture.title}</span>
-			<Dialog.Root>
-				<Dialog.Trigger class='italic underline'>{lecture.speaker}</Dialog.Trigger>
-				<Dialog.Content>
-					<Dialog.Header class='font-bold text-center'>{lecture.speaker}</Dialog.Header>
-					<span>{lecture.desc}</span>
-				</Dialog.Content>
-			</Dialog.Root>
-			{#if lecture.youtube != null}
-				<span class="text-center underline"><a href={lecture.youtube}>Watch Here</a></span>
-			{/if}
-		</div>
-		<div class="grid-shrink-0 justify-self-end-safe md:justify-self-center-safe">
-			<img alt="SPEAKER_NAME" src={lecture.imgUrl} class="aspect-square h-24 w-24 object-cover" />
-		</div>
-	</div>
-{/each}
-
-<div class="m-3 flex flex-row justify-center">
-	<Dialog.Root>
-		<Dialog.Trigger class="bg-bubble shadow-big-bubble m-2 w-fit rounded-4xl p-2 pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all active:translate-x-2 active:translate-y-1 active:border-2 active:border-slate-700 active:shadow-none">Registration</Dialog.Trigger>
-		<Dialog.Content class="sm:max-w-[425px] bg-cream">
-			<Dialog.Header>
-				<Dialog.Title>Registration</Dialog.Title>
-				<Dialog.Description>
-					Please provide the following information. Zoom information will be provided via email.
-				</Dialog.Description>
-			</Dialog.Header>
-			<form method='POST'>
-				<div class="grid gap-4 py-4">
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="fname" class="text-left">First Name</Label>
-						<Input id="fname" value="" class="col-span-3 bg-cream" />
-					</div>
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="email" class="text-left">Email</Label>
-						<Input id="email" value="" type='email' class="col-span-3 bg-cream" />
-					</div>
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="state" class="text-left">Your state</Label>
-						<Input id="state" value="" class="col-span-3 bg-cream" />
-					</div>
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="city" class="text-left">Your city</Label>
-						<Input id="city" value="" class="col-span-3 bg-cream" />
-					</div>
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="grade" class="text-left">Grade in school</Label>
-						<Input id="grade" value="" type='number' class="col-span-3 bg-cream" />
-					</div>
-					<input type='hidden' value='secret'/>
-				</div>
-				<button class='bg-cream shadow-bubble m-2 w-fit rounded-4xl p-2 pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all active:translate-x-2 active:translate-y-1 border-1 active:border-2 border-slate-700 active:shadow-none'>Submit</button>
-			</form>
-		</Dialog.Content>
-	</Dialog.Root>
-</div>
-
-<hr class="text-slate-700" />
-Presented by:<a href="https://www.christiansciencenb.org" class="text-center underline"
-	>The First Church of Christ, Scientist, in Newport Beach, California</a
+<div
+	class="relative bg-[url(/mountain_lake.jpg)] bg-cover bg-fixed bg-center bg-no-repeat bg-origin-content"
 >
+	<div class="flex flex-col items-center gap-2 p-1">
+		<h1
+			class="bg-bubble shadow-big-bubble m-2 w-fit rounded-4xl pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all hover:translate-x-2 hover:translate-y-1 hover:border-2 hover:border-slate-700 hover:shadow-none"
+		>
+			Teen Talks <br />Series
+		</h1>
+		<p class="text-center text-xl italic">
+			A free workshop series open to all Christian Scientsts and friends, aged 13 to 19.
+		</p>
+	</div>
+
+	<hr class="border-slate-700" />
+
+	{#each lectures as lecture}
+		<div
+			style={glass}
+			class="m-2 grid grid-cols-4 items-center justify-around rounded-3xl  p-2 md:justify-items-stretch bg-white/36 shadow-2xl backdrop-blur-[8.7px]"
+		>
+			{#if lecture.youtube != null}
+				<a href={lecture.youtube} class="place-content-center md:justify-self-center-safe">
+					<div
+						class="text-s bg-mint-300 shadow-bubble flex aspect-square h-22 w-22 flex-col place-content-center items-center rounded-full text-center transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:border hover:border-slate-700 hover:shadow-none"
+					>
+						Sunday<br />
+						{lecture.month}<br />
+						{lecture.day}
+					</div>
+				</a>
+			{:else}
+				<div
+					class="text-s bg-mint-300 shadow-bubble flex aspect-square h-22 w-22 flex-col place-content-center items-center rounded-full text-center transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:border hover:border-slate-700 hover:shadow-none md:justify-self-center-safe"
+				>
+					Sunday<br />
+					{lecture.month}<br />
+					{lecture.day}
+				</div>
+			{/if}
+			<div class="col-span-2 m-1 flex flex-col justify-around wrap-normal">
+				<span class="text-center font-bold text-wrap">{lecture.title}</span>
+				<Dialog.Root>
+					<Dialog.Trigger class="italic underline">{lecture.speaker}</Dialog.Trigger>
+					<Dialog.Content>
+						<Dialog.Header class="text-center text-2xl font-bold">{lecture.speaker}</Dialog.Header>
+						<span>{lecture.desc}</span>
+					</Dialog.Content>
+				</Dialog.Root>
+			</div>
+			<div class="grid-shrink-0 justify-self-end-safe md:justify-self-center-safe">
+				<img
+					alt={lecture.speaker}
+					src={lecture.imgUrl}
+					class="aspect-square h-24 w-24 object-cover"
+				/>
+			</div>
+		</div>
+	{/each}
+
+	<div class="m-3 flex flex-row justify-center">
+		<Dialog.Root>
+			<Dialog.Trigger
+				class="bg-bubble shadow-big-bubble m-2 w-fit rounded-4xl p-2 pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all active:translate-x-2 active:translate-y-1 active:border-2 active:border-slate-700 active:shadow-none"
+				>Registration</Dialog.Trigger
+			>
+			<Dialog.Content class="bg-cream sm:max-w-[425px]">
+				<Dialog.Header>
+					<Dialog.Title>Registration</Dialog.Title>
+					<Dialog.Description>
+						Please provide the following information. Zoom information will be provided via email.
+					</Dialog.Description>
+				</Dialog.Header>
+				<form method="POST">
+					<div class="grid gap-4 py-4">
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="fname" class="text-left">First Name</Label>
+							<Input id="fname" value="" class="bg-cream col-span-3" />
+						</div>
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="email" class="text-left">Email</Label>
+							<Input id="email" value="" type="email" class="bg-cream col-span-3" />
+						</div>
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="state" class="text-left">Your state</Label>
+							<Input id="state" value="" class="bg-cream col-span-3" />
+						</div>
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="city" class="text-left">Your city</Label>
+							<Input id="city" value="" class="bg-cream col-span-3" />
+						</div>
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="grade" class="text-left">Grade in school</Label>
+							<Input id="grade" value="" type="number" class="bg-cream col-span-3" />
+						</div>
+						<input type="hidden" value="secret" />
+					</div>
+					<button
+						class="bg-cream shadow-bubble m-2 w-fit rounded-4xl border-1 border-slate-700 p-2 pr-5 pl-5 text-center text-4xl font-bold text-wrap text-slate-700 transition-all active:translate-x-2 active:translate-y-1 active:border-2 active:shadow-none"
+						>Submit</button
+					>
+				</form>
+			</Dialog.Content>
+		</Dialog.Root>
+	</div>
+
+	<hr class="m-2 border-slate-700" />
+	<a href="https://www.christiansciencenb.org" class="text-center underline"
+		>The First Church of Christ, Scientist, in Newport Beach, California</a
+	>
+</div>
